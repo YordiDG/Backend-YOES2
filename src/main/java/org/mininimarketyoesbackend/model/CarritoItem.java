@@ -10,8 +10,17 @@ public class CarritoItem {
     private Long id;
     @ManyToOne
     private Producto producto;
-
     private int cantidad;
+    private double total;
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
 
     public Long getId() {
         return id;

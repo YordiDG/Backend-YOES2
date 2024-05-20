@@ -58,6 +58,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.findByEmailAndPassword(email, password);
     }
 
+
     @Override
     public User registerWithPhoneNumber(RegisterWithPhoneNumberRequest request) {
 
@@ -84,6 +85,4 @@ public class UsuarioServiceImpl implements UsuarioService {
         Matcher matcher = pattern.matcher(phoneNumber);
         return matcher.matches();
     }
-
 }
-

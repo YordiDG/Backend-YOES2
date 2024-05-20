@@ -9,8 +9,7 @@ public class Producto {
     private Long id;
 
     private String name;
-
-    private String price;
+    private double price;
     private String description;
     @Column(length = 1000)
     private String image;
@@ -24,7 +23,7 @@ public class Producto {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
-    public Producto(String name, String price, String description, String image, String category, String disponibilidad, int cantidad_stock, String valoracion) {
+    public Producto(String name, double price, String description, String image, String category, String disponibilidad, int cantidad_stock, String valoracion) {
         this.name = name;
         this.price = price;
         this.description = description;
@@ -54,16 +53,11 @@ public class Producto {
         this.name = name;
     }
 
-    public String getPrice() {
-        double precioDouble = Double.parseDouble(price);
-        if (precioDouble == (int) precioDouble) {
-            return String.format("%.0f", precioDouble); // Elimina los decimales si el precio es un número entero
-        } else {
-            return String.format("%.2f", precioDouble); // Muestra dos decimales si el precio no es un número entero
-        }
+    public double getPrice() {
+        return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
